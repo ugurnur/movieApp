@@ -12,5 +12,7 @@
     
     
     <a href="MovieListControllerServlet">Movie Controller Servlet</a>
+    <br>
+    <a href="MovieDetailPageServlet">MovieDetailPageServlet</a>
   </body>
 </html>

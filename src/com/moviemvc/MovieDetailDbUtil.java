@@ -1,26 +1,26 @@
 package com.moviemvc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.sql.DataSource;
 
-
-public class MovieDbUtil {
-	private DataSource dataSource; 
+public class MovieDetailDbUtil {
+private DataSource dataSource; 
 	
-	public MovieDbUtil (DataSource theDataSource) {
+	public MovieDetailDbUtil (DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
 	
-	public List<Movie> getMovies() throws Exception {
-		List<Movie> movies = new ArrayList<>();
+	public Movie getMovie(int movieid) throws Exception {
+		Movie movie = null;
+		int movieId = movieid;
 		
 		Connection myConn = null;
-		Statement myStatement = null;
+		PreparedStatement myStatement = null;
 		ResultSet resultSet = null;
 		
 		try {
@@ -30,13 +30,15 @@ public class MovieDbUtil {
 //			myConn=DriverManager.getConnection("jdbc:mysql://localhost:3306/movie_search","root","!!Ugur34");  
 
 			// query
-			String sql = "SELECT * FROM movies2";
-			myStatement = myConn.createStatement();
-			resultSet = myStatement.executeQuery(sql);
-			
-			while(resultSet.next()) {
 
-				
+			myStatement = myConn.prepareStatement("SELECT * FROM movie_search.movies2 WHERE id = ?");
+			myStatement.setInt(1, movieId);
+			System.out.println(movieId);
+			
+			resultSet = myStatement.executeQuery();
+			
+
+			while(resultSet.next()) {		
 				int id = resultSet.getInt("id");
 				String title = resultSet.getString("title");
 				int year = resultSet.getInt("year");
@@ -44,19 +46,11 @@ public class MovieDbUtil {
 				float imdb = resultSet.getFloat("imdb");
 				String cast = resultSet.getString("cast");
 				String awards = resultSet.getString("awards");
-				String url = resultSet.getString("url");
-				
-		
-				
-				
-				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);
-				
-				movies.add(tempMovie);
-			}			
-			// return list object
-			System.out.print("connection made");
-			System.out.print(movies);
-			return movies;
+				String url = resultSet.getString("url");				
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);		
+				movie = tempMovie;
+			}
+			return movie;
 		}
 		finally {
 			close(myConn, myStatement, resultSet);
