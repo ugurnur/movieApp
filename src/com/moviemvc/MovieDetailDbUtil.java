@@ -33,7 +33,7 @@ private DataSource dataSource;
 			resultSet = myStatement.executeQuery();
 			
 
-			while(resultSet.next()) {		
+			if(resultSet.next()) {		
 				int id = resultSet.getInt("id");
 				String title = resultSet.getString("title");
 				int year = resultSet.getInt("year");
@@ -44,7 +44,10 @@ private DataSource dataSource;
 				String url = resultSet.getString("url");				
 				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);		
 				movie = tempMovie;
+			} else {
+				throw new Exception("Could not find the Movie Id: "+ movieId);
 			}
+			
 			return movie;
 		}
 		finally {
@@ -129,6 +132,55 @@ private DataSource dataSource;
 		finally {
 			close(myConn, myStatement, resultSet);
 		}
+	}
+	
+	public void updateMovie(Movie movie) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStatement = null;
+		
+		
+		try {
+			myConn = dataSource.getConnection();
+			String sql = "UPDATE movies2 SET " +
+					"title=?, year=?, genre=?, imdb=?, cast=?, awards=?, url=? WHERE id =?";
+			
+			myStatement = myConn.prepareStatement(sql);
+			myStatement.setString(1, movie.getTitle());
+			myStatement.setInt(2, movie.getYear());
+			myStatement.setString(3, movie.getGenre());
+			myStatement.setFloat(4, movie.getImdb_rate());
+			myStatement.setString(5, movie.getCast());
+			myStatement.setString(6, movie.getAwards());
+			myStatement.setString(7, movie.getTrailerUrl());
+			myStatement.setInt(8, movie.getId());
+			myStatement.execute();
+
+		}
+		finally {
+			close(myConn,myStatement, null );
+		}
+		
+	}
+	
+	public void deleteMovie(int movieId) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStatement = null;
+		
+		
+		try {
+			myConn = dataSource.getConnection();
+
+			String sql = "DELETE FROM movies2 WHERE id =?";
+			
+			myStatement = myConn.prepareStatement(sql);
+			myStatement.setInt(1, movieId);
+			myStatement.execute();
+
+		}
+		finally {
+			close(myConn,myStatement, null );
+		}
+		
 	}
 	
 	

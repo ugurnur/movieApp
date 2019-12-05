@@ -64,6 +64,13 @@ public class MovieListControllerServlet extends HttpServlet {
 			case "FETCH": 
 				fetchMovie(request, response);
 				break;
+			case "UPDATE": 
+				updateMovie(request, response);
+				break;
+				
+			case "DELETE": 
+				deleteMovie(request, response);
+				break;
 				
 				
 			default: 
@@ -141,5 +148,37 @@ public class MovieListControllerServlet extends HttpServlet {
 			request.setAttribute("Movie_Detail", movie);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/movie-detail.jsp");
 			dispatcher.forward(request, response);			
+	}
+	
+	private void updateMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int movieid= Integer.parseInt(request.getParameter("movieId"));
+        String title= request.getParameter("title");
+        int year= Integer.parseInt(request.getParameter("year"));
+        String genre= request.getParameter("genre");
+        float imdb= Float.parseFloat(request.getParameter("imdb")) ;
+        String cast= request.getParameter("cast");
+        String awards= request.getParameter("awards");
+        String trailer= request.getParameter("trailer");
+        
+        Movie movie = new Movie(movieid, title, year, genre, imdb, cast, awards, trailer);
+        
+//		send it to the db
+        movieDetailDbUtil.updateMovie(movie);
+		
+		//send the user to the homepage
+        adminListMovies(request, response);
+					
+	}
+	
+	private void deleteMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int movieid= Integer.parseInt(request.getParameter("movieId"));
+
+        
+//		send it to the db
+        movieDetailDbUtil.deleteMovie(movieid);
+		
+		//send the user to the homepage
+        adminListMovies(request, response);
+					
 	}
 }
