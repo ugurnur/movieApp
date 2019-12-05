@@ -54,8 +54,6 @@ public class MovieDbUtil {
 				movies.add(tempMovie);
 			}			
 			// return list object
-			System.out.print("connection made");
-			System.out.print(movies);
 			return movies;
 		}
 		finally {

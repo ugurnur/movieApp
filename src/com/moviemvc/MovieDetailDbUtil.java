@@ -33,7 +33,7 @@ private DataSource dataSource;
 
 			myStatement = myConn.prepareStatement("SELECT * FROM movie_search.movies2 WHERE id = ?");
 			myStatement.setInt(1, movieId);
-			System.out.println(movieId);
+
 			
 			resultSet = myStatement.executeQuery();
 			
@@ -65,6 +65,34 @@ private DataSource dataSource;
 		}
 		catch (Exception exc){
 			exc.printStackTrace();	
+		}
+		
+	}
+	
+	public void addMovie(Movie movie) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStatement = null;
+		
+		
+		try {
+			myConn = dataSource.getConnection();
+			String sql = "INSERT INTO movies2 " +
+					"(title, year, genre, imdb, cast, awards, url) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+			
+			myStatement = myConn.prepareStatement(sql);
+			myStatement.setString(1, movie.getTitle());
+			myStatement.setInt(2, movie.getYear());
+			myStatement.setString(3, movie.getGenre());
+			myStatement.setFloat(4, movie.getImdb_rate());
+			myStatement.setString(5, movie.getCast());
+			myStatement.setString(6, movie.getAwards());
+			myStatement.setString(7, movie.getTrailerUrl());
+			myStatement.execute();
+
+		}
+		finally {
+			close(myConn,myStatement, null );
 		}
 		
 	}

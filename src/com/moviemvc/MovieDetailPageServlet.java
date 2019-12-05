@@ -37,6 +37,7 @@ public class MovieDetailPageServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			
 			fetchMovie(request, response);
 		} catch (Exception e) {
 			throw new ServletException(e);
@@ -45,8 +46,9 @@ public class MovieDetailPageServlet extends HttpServlet {
 
 
 	private void fetchMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int movie_id = Integer.parseInt(request.getParameter("movieid"));
 		Movie movie;
-			movie = movieDetailDbUtil.getMovie(3);
+			movie = movieDetailDbUtil.getMovie(movie_id);
 			request.setAttribute("Movie_Detail", movie);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/movie-detail.jsp");
 			dispatcher.forward(request, response);			

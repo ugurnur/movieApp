@@ -11,8 +11,10 @@
   <body>
     
     
-    <a href="MovieListControllerServlet">Movie Controller Servlet</a>
+    <a href="MovieListControllerServlet?command="LIST"> Movie Controller Servlet</a>
     <br>
-    <a href="MovieDetailPageServlet">MovieDetailPageServlet</a>
+    <a href="MovieDetailPageServlet?movieid=3">MovieDetailPageServlet</a>
+    <br>
+    <a href="add-movie.jsp">Add Movie</a>
   </body>
 </html>
