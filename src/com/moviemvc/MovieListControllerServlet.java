@@ -43,7 +43,10 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String command = request.getParameter("command");
+			String command = "";
+			if (request.getParameter("command") != "") {
+				command = request.getParameter("command");
+			}
 			
 			switch (command) {
 			case "ADD": 
