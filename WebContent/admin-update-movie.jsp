@@ -9,37 +9,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>List Movies</title>
+  <%
+Movie mv= (Movie)request.getAttribute("The_Movie");
+  %>
+<title><%= mv.getTitle()%></title>
 </head>
 
-  <%
-ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
-  %>
+
 <body>
-<h2>List All Movies</h2>
+<h2>Update Movie Page</h2>
   <table>
- 
-   <% for(Movie mv : list) { %>
  <tr><td>Movie id: </td><td><%= mv.getId()%> </td></tr>
  <tr><td>Title: </td><td><%= mv.getTitle()%> </td></tr>
  <tr><td>Year: </td><td><%= mv.getYear()%> </td></tr>
-  <tr><td>IMDB Rate: </td><td><%= mv.getImdb_rate()%> </td></tr>
   <tr><td>Genre: </td><td><%= mv.getGenre()%> </td></tr>
    <tr><td>Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
-  
 
-
-  <% } %>
   
 </table>
 
-
-
-<% out.println("<h2>Deneme </h2>");
-out.println("<h2>"+ list.get(0).getTitle() +"</h2>");
- %>
 
 </body>
 </html>

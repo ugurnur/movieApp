@@ -46,9 +46,6 @@ public class MovieDbUtil {
 				String awards = resultSet.getString("awards");
 				String url = resultSet.getString("url");
 				
-		
-				
-				
 				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);
 				
 				movies.add(tempMovie);

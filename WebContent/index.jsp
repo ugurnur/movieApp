@@ -11,10 +11,15 @@
   <body>
     
     
-    <a href="MovieListControllerServlet?command="LIST"> Movie Controller Servlet</a>
-    <br>
-    <a href="MovieDetailPageServlet?movieid=3">MovieDetailPageServlet</a>
-    <br>
-    <a href="add-movie.jsp">Add Movie</a>
+    <a href="MovieListControllerServlet?command="LIST">List All Movies</a>
+    <br>  <br>  <br>  <br>
+
+        <a href="MovieListControllerServlet?movieId=3&command=FETCH">Movie Detail Page</a>
+    <br>  <br>  <br>  <br>
+    <a href="admin-add-movie.jsp">Add Movie Page</a>
+     <br>  <br>  <br>  <br>
+    <a href="MovieListControllerServlet?command=ADMIN_LIST">Admin List Movies</a>
+     <br>  <br>  <br>  <br>
+    <a href="MovieListControllerServlet?movieId=1&command=LOAD">Movie Update Page Sample</a>
   </body>
 </html>

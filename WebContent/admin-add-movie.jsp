@@ -16,7 +16,7 @@
         
   </head>
   <body>
-
+<h2>Admin Add A New Movie Page</h2>
     <form action="MovieListControllerServlet" action="GET" name="AddMovieForm" id="movieAdd">
         <input
             type="hidden"

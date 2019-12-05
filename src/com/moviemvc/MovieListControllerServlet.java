@@ -51,10 +51,21 @@ public class MovieListControllerServlet extends HttpServlet {
 			switch (command) {
 			case "ADD": 
 				addMovies(request, response);
-				break;		
+				break;
+			case "ADMIN_LIST": 
+				adminListMovies(request, response);
+				break;
+			case "LOAD": 
+				loadMovie(request, response);
+				break;
 			case "LIST": 
 				listMovies(request, response);
 				break;
+			case "FETCH": 
+				fetchMovie(request, response);
+				break;
+				
+				
 			default: 
 				listMovies(request, response);
 				break;
@@ -69,9 +80,29 @@ public class MovieListControllerServlet extends HttpServlet {
 
 	private void listMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Movie> movies;
-			movies = movieDbUtil.getMovies();
+			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-movies.jsp");
+			dispatcher.forward(request, response);			
+	}
+	
+	private void loadMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+			int movieId = Integer.parseInt(request.getParameter("movieId"));
+		
+			Movie theMovie = movieDetailDbUtil.getMovie(movieId);	
+			
+			request.setAttribute("The_Movie", theMovie);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-update-movie.jsp");
+			dispatcher.forward(request, response);			
+	}
+	
+	
+	
+	private void adminListMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List<Movie> movies;
+			movies = movieDbUtil.getMovies();
+			request.setAttribute("Movie_List", movies);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-list-movies.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -101,5 +132,14 @@ public class MovieListControllerServlet extends HttpServlet {
 		//send the user to the homepage
 		listMovies(request, response);
 					
+	}
+	
+	private void fetchMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int movie_id = Integer.parseInt(request.getParameter("movieId"));
+		Movie movie;
+			movie = movieDetailDbUtil.getMovie(movie_id);
+			request.setAttribute("Movie_Detail", movie);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/movie-detail.jsp");
+			dispatcher.forward(request, response);			
 	}
 }

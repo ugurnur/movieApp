@@ -17,7 +17,7 @@ Movie mv= (Movie)request.getAttribute("Movie_Detail");
 
 
 <body>
-
+<h2>Movie Detail Page</h2>
   <table>
  <tr><td>Movie id: </td><td><%= mv.getId()%> </td></tr>
  <tr><td>Title: </td><td><%= mv.getTitle()%> </td></tr>
