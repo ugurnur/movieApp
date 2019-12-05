@@ -117,6 +117,17 @@
             placeholder="Trailer URL"
           />
         </label>
+                <label>
+          <span>Movie Poster:</span>
+          <input
+            id="poster"
+            title="Movie Poster"
+            type="text"
+            name="imgUrl"
+            aria-label="Movie Poster"
+            placeholder="Movie Poster"
+          />
+        </label>
 
       <button type="submit" class="smb_button">Submit</button>
     </form>

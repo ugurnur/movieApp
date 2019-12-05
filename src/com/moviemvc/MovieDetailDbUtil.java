@@ -41,8 +41,10 @@ private DataSource dataSource;
 				float imdb = resultSet.getFloat("imdb");
 				String cast = resultSet.getString("cast");
 				String awards = resultSet.getString("awards");
-				String url = resultSet.getString("url");				
-				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);		
+				String url = resultSet.getString("url");
+				String imgUrl = resultSet.getString("imgUrl");
+				
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);		
 				movie = tempMovie;
 			} else {
 				throw new Exception("Could not find the Movie Id: "+ movieId);
@@ -75,8 +77,8 @@ private DataSource dataSource;
 		try {
 			myConn = dataSource.getConnection();
 			String sql = "INSERT INTO movies2 " +
-					"(title, year, genre, imdb, cast, awards, url) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+					"(title, year, genre, imdb, cast, awards, url, imgUrl) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			myStatement = myConn.prepareStatement(sql);
 			myStatement.setString(1, movie.getTitle());
@@ -86,6 +88,7 @@ private DataSource dataSource;
 			myStatement.setString(5, movie.getCast());
 			myStatement.setString(6, movie.getAwards());
 			myStatement.setString(7, movie.getTrailerUrl());
+			myStatement.setString(8, movie.getImgUrl());
 			myStatement.execute();
 
 		}
@@ -121,8 +124,9 @@ private DataSource dataSource;
 				String cast = resultSet.getString("cast");
 				String awards = resultSet.getString("awards");
 				String url = resultSet.getString("url");
+				String imgUrl = resultSet.getString("imgUrl");
 				
-				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url);
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);
 				
 				movies.add(tempMovie);
 			}			
@@ -142,7 +146,7 @@ private DataSource dataSource;
 		try {
 			myConn = dataSource.getConnection();
 			String sql = "UPDATE movies2 SET " +
-					"title=?, year=?, genre=?, imdb=?, cast=?, awards=?, url=? WHERE id =?";
+					"title=?, year=?, genre=?, imdb=?, cast=?, awards=?, url=?, imgUrl=? WHERE id =?";
 			
 			myStatement = myConn.prepareStatement(sql);
 			myStatement.setString(1, movie.getTitle());
@@ -152,7 +156,8 @@ private DataSource dataSource;
 			myStatement.setString(5, movie.getCast());
 			myStatement.setString(6, movie.getAwards());
 			myStatement.setString(7, movie.getTrailerUrl());
-			myStatement.setInt(8, movie.getId());
+			myStatement.setString(8, movie.getImgUrl());
+			myStatement.setInt(9, movie.getId());
 			myStatement.execute();
 
 		}

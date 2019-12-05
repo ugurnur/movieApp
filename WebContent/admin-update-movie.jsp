@@ -27,12 +27,12 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
    <tr><td>Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
+      <tr><td>Poster Link: </td><td><a href="<%= mv.getImgUrl()%>" target="_blank"><%= mv.getImgUrl()%></a> </td></tr>
 
   
 </table>
 
 <form action="MovieListControllerServlet" action="GET" name="AddMovieForm" id="movieAdd">
-        
         
         
         <input
@@ -77,6 +77,8 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
 
           />
         </label>
+
+
 
         <label>
           <span>Genre:</span>
@@ -145,6 +147,18 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
             aria-label="Trailer URL"
             placeholder="Trailer URL"
             value="<%= mv.getTrailerUrl()%>"
+          />
+        </label>
+        
+                <label>
+          <span>Poster:</span>
+          <input
+            id="imgUrl"
+            title="Poster URL"
+            type="text"
+            name="imgUrl"
+            aria-label="Poster URL"
+            value="<%= mv.getImgUrl()%>"
           />
         </label>
 

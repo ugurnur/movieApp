@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 public class MovieListControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	MovieDbUtil movieDbUtil;
+//	MovieDbUtil movieDbUtil;
 	MovieDetailDbUtil movieDetailDbUtil;
 	
 	@Resource(name="jdbc/movie_search")
@@ -32,7 +32,7 @@ public class MovieListControllerServlet extends HttpServlet {
 		super.init();
 		
 		try {
-			movieDbUtil = new MovieDbUtil(dataSource);
+//			movieDbUtil = new MovieDbUtil(dataSource);
 			movieDetailDbUtil = new MovieDetailDbUtil(dataSource);
 		}
 		catch (Exception exc){
@@ -107,7 +107,7 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	private void adminListMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Movie> movies;
-			movies = movieDbUtil.getMovies();
+			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-list-movies.jsp");
 			dispatcher.forward(request, response);			
@@ -115,23 +115,19 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	private void addMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		create a new movie object
-//		float imdb=0;
-//		int year=0;
+
         String title= request.getParameter("title");
-//        if (request.getParameter("year") != "") {
-//        	year= Integer.parseInt(request.getParameter("year"));
-//        } 
         int year= Integer.parseInt(request.getParameter("year"));
         String genre= request.getParameter("genre");
-//        if (request.getParameter("imdb") != "") {
-//        	imdb= Float.parseFloat(request.getParameter("imdb")) ;
-//        } 
         float imdb= Float.parseFloat(request.getParameter("imdb")) ;
         String cast= request.getParameter("cast");
         String awards= request.getParameter("awards");
         String trailer= request.getParameter("trailer");
+        String imgUrl= request.getParameter("imgUrl");
+        System.out.println(imgUrl);
+ 
         
-        Movie movie = new Movie(title, year, genre, imdb, cast, awards, trailer);
+        Movie movie = new Movie(title, year, genre, imdb, cast, awards, trailer, imgUrl);
         
 //		send it to the db
         movieDetailDbUtil.addMovie(movie);
@@ -159,8 +155,9 @@ public class MovieListControllerServlet extends HttpServlet {
         String cast= request.getParameter("cast");
         String awards= request.getParameter("awards");
         String trailer= request.getParameter("trailer");
+        String imgUrl= request.getParameter("imgUrl");
         
-        Movie movie = new Movie(movieid, title, year, genre, imdb, cast, awards, trailer);
+        Movie movie = new Movie(movieid, title, year, genre, imdb, cast, awards, trailer, imgUrl);
         
 //		send it to the db
         movieDetailDbUtil.updateMovie(movie);

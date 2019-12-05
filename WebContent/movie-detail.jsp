@@ -26,8 +26,8 @@ Movie mv= (Movie)request.getAttribute("Movie_Detail");
    <tr><td>Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
-
-  
+      
+      <tr><td>Poster: </td><td><img src="<%=mv.getImgUrl()%>"/></td></tr> 
 </table>
 
 

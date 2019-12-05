@@ -28,8 +28,7 @@ ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
    <tr><td>Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
-  
-
+      <tr><td>Poster Link: </td><td><img src="<%= mv.getImgUrl()%>" width="200"></td></tr>
 
   <% } %>
   

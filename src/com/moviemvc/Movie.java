@@ -10,8 +10,10 @@ public class Movie {
 	private String cast;
 	private String awards;
 	private String trailerUrl;
+	private String imgUrl;
 	
-	public Movie(String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl) {
+	
+	public Movie(String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl, String imgUrl) {
 		super();
 		this.title = title;
 		this.year = year;
@@ -21,9 +23,11 @@ public class Movie {
 		this.cast = cast;
 		this.awards = awards;
 		this.trailerUrl = trailerUrl;
+		this.imgUrl = imgUrl;
+		
 	}
 	
-	public Movie(int id, String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl) {
+	public Movie(int id, String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl, String imgUrl) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
@@ -33,6 +37,7 @@ public class Movie {
 		this.cast = cast;
 		this.awards = awards;
 		this.trailerUrl = trailerUrl;
+		this.imgUrl = imgUrl;
 	}
 
 	public String getTitle() {
@@ -91,12 +96,20 @@ public class Movie {
 		this.awards = awards;
 	}
 
+	public void setTrailerUrl(String trailerUrl) {
+		this.trailerUrl = trailerUrl;
+	}
+	
 	public String getTrailerUrl() {
 		return trailerUrl;
 	}
 
-	public void setTrailerUrl(String trailerUrl) {
-		this.trailerUrl = trailerUrl;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
 	
