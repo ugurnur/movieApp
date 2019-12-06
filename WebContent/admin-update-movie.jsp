@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
   <%
 Movie mv= (Movie)request.getAttribute("The_Movie");
+  String selected = (String) mv.getGenre();
   %>
       <link href="css/styles.css" type="text/css" rel="stylesheet" />
 <title>Update <%= mv.getTitle()%></title>
@@ -23,7 +24,7 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
  <tr><td>Movie id: </td><td><%= mv.getId()%> </td></tr>
  <tr><td>Title: </td><td><%= mv.getTitle()%> </td></tr>
  <tr><td>Year: </td><td><%= mv.getYear()%> </td></tr>
-  <tr><td>Genre: </td><td><%= mv.getGenre()%> </td></tr>
+  <tr><td>Genre: </td><td><%= mv.getGenre()%></td></tr>
    <tr><td>Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
@@ -77,25 +78,26 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
 
           />
         </label>
-
-
-
         <label>
           <span>Genre:</span>
           <select required name="genre">
-            <option value="Action">Action</option>
-            <option value="Drama">Drama</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Family">Family</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Horror">Horror</option>
-            <option value="Romance">Romance</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Biography">Biography</option>
-            <option value="Other">Other</option>
+<%
+
+   String[] genres = {"Drama", "Adventure", "Family", "Comedy", "Mystery","Horror","Romance","Documentary", "Biography", "Other"};
+
+       for (int i = 0; i < genres.length; i++) {
+	  	if (selected.equals(genres[i])) {
+		  out.print("<option selected value="+genres[i]+">"+genres[i]+"</option>");
+	  } else {
+		  out.print("<option value="+genres[i]+">"+genres[i]+"</option>");
+	  }
+   }
+%>
+            
           </select>
         </label>
+
+
 
         <label>
           <span>IMDB Rate:</span>
