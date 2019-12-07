@@ -48,6 +48,18 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
           />
 
           
+                  <label>
+          <span>Movie ID:</span>
+          <input
+            id="MovieId"
+            title="Movie Id"
+            type="number"
+            aria-label="Movie Id"
+            value="<%= mv.getId()%>"
+            placeholder="Movie Id"
+            disabled
+          />
+        </label>
         <label>
           <span>Title:</span>
           <input
@@ -82,9 +94,7 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
           <span>Genre:</span>
           <select required name="genre">
 <%
-
-   String[] genres = {"Drama", "Adventure", "Family", "Comedy", "Mystery","Horror","Romance","Documentary", "Biography", "Other"};
-
+   String[] genres = {"Action","Drama", "Adventure", "Family", "Comedy", "Mystery","Horror","Romance","Documentary", "Biography", "Other"};
        for (int i = 0; i < genres.length; i++) {
 	  	if (selected.equals(genres[i])) {
 		  out.print("<option selected value="+genres[i]+">"+genres[i]+"</option>");
@@ -112,7 +122,6 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
              required
           />
         </label>
-
         <label>
           <span>Cast:</span>
           <input

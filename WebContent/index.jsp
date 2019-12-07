@@ -21,5 +21,10 @@
     <a href="MovieListControllerServlet?command=ADMIN_LIST">Admin List Movies</a>
      <br>  <br>  <br>  <br>
     <a href="MovieListControllerServlet?movieId=1&command=LOAD">Movie Update Page Sample</a>
+         <br>  <br>  <br>  <br>
+    <a href="searchbyTitle.jsp">Search By Title</a>
+        <br>  <br>  <br>  <br>
+    <a href="MovieListControllerServlet?command=SEARCHTITLE">List All Movies</a>
+    <br>  <br>  <br>  <br>
   </body>
 </html>

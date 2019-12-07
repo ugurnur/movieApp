@@ -180,7 +180,6 @@ private DataSource dataSource;
 			myStatement = myConn.prepareStatement(sql);
 			myStatement.setInt(1, movieId);
 			myStatement.execute();
-
 		}
 		finally {
 			close(myConn,myStatement, null );
@@ -188,6 +187,46 @@ private DataSource dataSource;
 		
 	}
 	
-	
+	public List<Movie> getSearchedMovies(String movTitle) throws Exception {
+		List<Movie> movies = new ArrayList<>();
+		
+		Connection myConn = null;
+		PreparedStatement myStatement = null;
+		ResultSet resultSet = null;
+		try {
 
+			myConn = dataSource.getConnection();
+
+			String sql = "SELECT * FROM movies2 where title= ?";
+			
+			myStatement = myConn.prepareStatement(sql);
+			myStatement.setString(1, movTitle);
+
+			
+			resultSet = myStatement.executeQuery();
+			
+			while(resultSet.next()) {
+
+				
+				int id = resultSet.getInt("id");
+				String title = resultSet.getString("title");
+				int year = resultSet.getInt("year");
+				String genre = resultSet.getString("genre");
+				float imdb = resultSet.getFloat("imdb");
+				String cast = resultSet.getString("cast");
+				String awards = resultSet.getString("awards");
+				String url = resultSet.getString("url");
+				String imgUrl = resultSet.getString("imgUrl");
+				
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);
+				
+				movies.add(tempMovie);
+			}			
+			// return list object
+			return movies;
+		}
+		finally {
+			close(myConn, myStatement, resultSet);
+		}
+	}
 }

@@ -66,18 +66,19 @@ public class MovieListControllerServlet extends HttpServlet {
 				break;
 			case "UPDATE": 
 				updateMovie(request, response);
-				break;
-				
+				break;	
 			case "DELETE": 
 				deleteMovie(request, response);
 				break;
 				
-				
+			case "SEARCHTITLE": 
+				searchMovies(request, response);
+				break;
+							
 			default: 
 				listMovies(request, response);
 				break;
 			}
-			
 			
 		} catch (Exception e) {
 			throw new ServletException(e);
@@ -90,6 +91,15 @@ public class MovieListControllerServlet extends HttpServlet {
 			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-movies.jsp");
+			dispatcher.forward(request, response);			
+	}
+	
+	private void searchMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String movTitle= request.getParameter("searchTitle");
+		List<Movie> movies;
+			movies = movieDetailDbUtil.getSearchedMovies(movTitle);
+			request.setAttribute("Movie_List", movies);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-movieresults.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -112,6 +122,7 @@ public class MovieListControllerServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-list-movies.jsp");
 			dispatcher.forward(request, response);			
 	}
+	
 	
 	private void addMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		create a new movie object
