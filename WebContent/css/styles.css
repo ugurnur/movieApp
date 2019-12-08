@@ -1,30 +1,140 @@
-html {
-	font: normal 16px/20px Arial;
-	margin: 50px 100px;
+html,
+body {
+  font: normal 16px/20px Arial;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1d;
 }
 
 #movieAdd span {
-	display: inline-block;
-	width: 145px;
-	margin-right: 0px;
+  display: inline-block;
+  width: 145px;
+  margin-right: 0px;
 }
 
 #movieAdd label {
-	display: block;
-	margin-bottom: 10px;
-	margin-left: 40px;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 40px;
 }
 
-#movieAdd input, select {
-	color: black;
-	font-size: 16px;
-	padding: 3px;
-	border-radius: 8px;
-	margin-left: 8px;
+#movieAdd input,
+select {
+  color: black;
+  font-size: 16px;
+  padding: 3px;
+  border-radius: 8px;
+  margin-left: 8px;
 }
 
 #movieAdd .smb_button {
-	font-size: 16px;
-	padding: 10px;
-	border-radius: 8px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#header {
+  background-color: rgb(241, 122, 11);
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+#header .head-cont {
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  display: block;
+  margin-right: 20px;
+  float: left;
+}
+.top-search {
+  float: right;
+}
+
+#header .top-search .searchbar {
+  width: 635px;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px;
+  position: absolute;
+  top: 15px;
+  left: 120px;
+}
+.sndbutton {
+  background: url(../img/searcbutton.png) no-repeat;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border: none;
+  margin-left: 20px;
+}
+
+.content_cont {
+  margin: 100px auto 30px;
+  width: 860px;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  border: 1px solid rgb(187, 197, 206);
+
+  box-sizing: content-box;
+}
+
+.ht-footer .container {
+  margin: 30px auto 0px;
+  width: 860px;
+  padding: 20px;
+  background-color: rgb(110, 120, 129);
+  border-radius: 10px;
+}
+
+.ht-footer {
+}
+
+.ht-footer .flex-parent-ft {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ht-footer .flex-parent-ft .flex-child-ft a {
+  color: rgb(216, 216, 216);
+}
+
+.ht-footer .flex-child-ft h4 {
+  font-family: "Dosis", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.ht-footer .ft-copyright {
+  width: 860px;
+  margin: 0px auto;
+  padding: 5px 0;
+  color: #646469;
+}
+
+.flex-child-ft input.emailsub {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 300;
+  text-transform: none;
+  border-color: #405266;
+  border-radius: 3px;
 }

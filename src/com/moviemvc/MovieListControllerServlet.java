@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-/**
- * Servlet implementation class StudentControllerServlet
- */
+
 @WebServlet("/MovieListControllerServlet")
+
+//@WebServlet(urlPatterns = {"/MovieListControllerServlet", "/home","/search", "/advancedSearch"})
 public class MovieListControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,42 +43,50 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String command = "";
-			if (request.getParameter("command") != "") {
-				command = request.getParameter("command");
+			
+			String uri = request.getRequestURI();
+			System.out.println(uri);
+			
+			if (request.getParameter("command") != null) {
+				String command = request.getParameter("command");
+				switch (command) {
+				case "ADD": 
+					addMovies(request, response);
+					break;
+				case "ADMIN_LIST": 
+					adminListMovies(request, response);
+					break;
+				case "LOAD": 
+					loadMovie(request, response);
+					break;
+				case "LIST": 
+					listMovies(request, response);
+					break;
+				case "FETCH": 
+					fetchMovie(request, response);
+					break;
+				case "UPDATE": 
+					updateMovie(request, response);
+					break;	
+				case "DELETE": 
+					deleteMovie(request, response);
+					break;
+					
+				case "SEARCHTITLE": 
+					searchMovies(request, response);
+					break;
+					
+				case "ADVANCEDSEARCH": 
+					advancedSearch(request, response);
+					break;				
+				default: 
+					listMovies(request, response);
+					break;
+				}
 			}
 			
-			switch (command) {
-			case "ADD": 
-				addMovies(request, response);
-				break;
-			case "ADMIN_LIST": 
-				adminListMovies(request, response);
-				break;
-			case "LOAD": 
-				loadMovie(request, response);
-				break;
-			case "LIST": 
-				listMovies(request, response);
-				break;
-			case "FETCH": 
-				fetchMovie(request, response);
-				break;
-			case "UPDATE": 
-				updateMovie(request, response);
-				break;	
-			case "DELETE": 
-				deleteMovie(request, response);
-				break;
-				
-			case "SEARCHTITLE": 
-				searchMovies(request, response);
-				break;
-							
-			default: 
-				listMovies(request, response);
-				break;
-			}
+			listMovies(request, response);
+
 			
 		} catch (Exception e) {
 			throw new ServletException(e);
@@ -86,11 +94,24 @@ public class MovieListControllerServlet extends HttpServlet {
 	}
 
 
+	
+	// page handlers
+	
+	private void advancedSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		List<Movie> movies;
+//			movies = movieDetailDbUtil.getMovies();
+//			request.setAttribute("Movie_List", movies);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fe-advanced-search.jsp");
+			dispatcher.forward(request, response);			
+	}
+	
+
 	private void listMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Movie> movies;
 			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-movies.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -99,7 +120,7 @@ public class MovieListControllerServlet extends HttpServlet {
 		List<Movie> movies;
 			movies = movieDetailDbUtil.getSearchedMovies(movTitle);
 			request.setAttribute("Movie_List", movies);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-movieresults.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fe-listresults.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -119,7 +140,7 @@ public class MovieListControllerServlet extends HttpServlet {
 		List<Movie> movies;
 			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-list-movies.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/be-admin-home.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -153,7 +174,7 @@ public class MovieListControllerServlet extends HttpServlet {
 		Movie movie;
 			movie = movieDetailDbUtil.getMovie(movie_id);
 			request.setAttribute("Movie_Detail", movie);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/movie-detail.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fe-movieDetail.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -180,7 +201,6 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	private void deleteMovie(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int movieid= Integer.parseInt(request.getParameter("movieId"));
-
         
 //		send it to the db
         movieDetailDbUtil.deleteMovie(movieid);

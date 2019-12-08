@@ -1,3 +1,7 @@
+<%-- <%
+    response.sendRedirect("http://localhost:8080/movie3/home");
+%> --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,7 +28,9 @@
          <br>  <br>  <br>  <br>
     <a href="searchbyTitle.jsp">Search By Title</a>
         <br>  <br>  <br>  <br>
-    <a href="MovieListControllerServlet?command=SEARCHTITLE">List All Movies</a>
-    <br>  <br>  <br>  <br>
+         <a href="fe-advanced-search.jsp">Adavnced Search By Title</a>
+        <br>  <br>  <br>  <br>
+    
+    
   </body>
 </html>
