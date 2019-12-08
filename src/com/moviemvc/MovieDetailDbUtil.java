@@ -16,6 +16,46 @@ private DataSource dataSource;
 		dataSource = theDataSource;
 	}
 	
+	
+	public List<Movie> getSearchResult(String query) throws Exception {
+		List<Movie> movies = new ArrayList<>();
+		
+		Connection myConn = null;
+		Statement myStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			String sql = query;
+			myConn = dataSource.getConnection();
+			myStatement = myConn.createStatement();
+			resultSet = myStatement.executeQuery(sql);
+			
+			
+			while(resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String title = resultSet.getString("title");
+				int year = resultSet.getInt("year");
+				String genre = resultSet.getString("genre");
+				float imdb = resultSet.getFloat("imdb");
+				String cast = resultSet.getString("cast");
+				String awards = resultSet.getString("awards");
+				String url = resultSet.getString("url");
+				String imgUrl = resultSet.getString("imgUrl");
+				
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);
+				
+				movies.add(tempMovie);
+			}			
+			// return list object
+			return movies;
+		}
+		finally {
+			close(myConn, myStatement, resultSet);
+		}
+	}
+	
+	
+	
 	public Movie getMovie(int movieid) throws Exception {
 		Movie movie = null;
 		int movieId = movieid;

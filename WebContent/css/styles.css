@@ -50,7 +50,7 @@ select {
 
 #header .head-cont {
   width: 900px;
-  margin: 0 auto;
+  margin: 5px auto 0;
   position: relative;
 }
 
@@ -73,7 +73,7 @@ select {
   left: 120px;
 }
 .sndbutton {
-  background: url(../img/searcbutton.png) no-repeat;
+  background: url("../img/sbutton.png") no-repeat;
   cursor: pointer;
   width: 80px;
   height: 80px;
@@ -82,7 +82,7 @@ select {
 }
 
 .content_cont {
-  margin: 100px auto 30px;
+  margin: 105px auto 30px;
   width: 860px;
   padding: 20px;
   background-color: aliceblue;

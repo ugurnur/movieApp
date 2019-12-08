@@ -19,8 +19,23 @@
 <h2>Search Titles</h2>
 
                   
-        <form action="/AdvancedSearchServlet" action="GET" name="AddMovieForm" id="movieAdd">
-        
+        <form action="AdvancedSearchServlet" action="GET" name="AddMovieForm" id="movieAdd">
+         <input
+            type="hidden"
+            name="command"
+            value="ADVANCEDSEARCH"
+          />
+           <label>
+                    <span>Movie ID:</span>
+          <input
+            id="MovieId"
+            title="Movie Id"
+            type="number"
+            aria-label="Movie Id"
+            placeholder="Movie Id"
+            name="id"
+          />
+        </label>
         <label>
           <span>Title:</span>
           <input
@@ -30,7 +45,6 @@
             name="title"
             aria-label="fullname"
             placeholder="Title of the Movie"
-            required
           />
         </label>
 
@@ -45,7 +59,6 @@
             placeholder="Enter the year of the Movie"
             min="1900"
             max="2023"
-
           />
         </label>
 

@@ -7,6 +7,17 @@
             name="command"
             value="ADVANCEDSEARCH"
           />
+          <label>
+                    <span>Movie ID:</span>
+                    <input
+            id="MovieId"
+            title="Movie Id"
+            type="number"
+            aria-label="Movie Id"
+            placeholder="Movie Id"
+            name="id"
+          />
+        </label>
         <label>
           <span>Title:</span>
           <input
@@ -16,7 +27,7 @@
             name="title"
             aria-label="fullname"
             placeholder="Title of the Movie"
-            required
+
           />
         </label>
 

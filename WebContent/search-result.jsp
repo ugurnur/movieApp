@@ -16,7 +16,9 @@
 <body>
 
   <%String title = (String)request.getAttribute("title");
+  
   out.print("<h2>"+title+"</h2>");
+  out.print("<p>"+(String)request.getAttribute("sql")+"</p>");
   %>
 
 
