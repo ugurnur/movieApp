@@ -16,7 +16,7 @@ ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
   <tr><td>Movie Id: </td><td><%= mv.getId()%> </td></tr>
  
  <tr><td>Movie Title: </td>
- <td><a href="MovieListControllerServlet?movieId=<%= mv.getId()%>&command=FETCH" title="<%= mv.getTitle()%>" target="_blank">    
+ <td><a href="MovieListControllerServlet?movieId=<%= mv.getId()%>&command=FETCH" title="<%= mv.getTitle()%>">    
  <%= mv.getTitle()%> </a> 
  
  </td></tr>

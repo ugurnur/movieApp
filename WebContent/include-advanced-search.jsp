@@ -1,4 +1,4 @@
-<h2>Search Titles</h2>
+<h2>Advanced Search</h2>
 
                   
         <form action="MovieListControllerServlet?" action="GET" name="AddMovieForm" id="movieAdd">

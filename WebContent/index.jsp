@@ -20,7 +20,7 @@
 
         <a href="MovieListControllerServlet?movieId=3&command=FETCH">Movie Detail Page</a>
     <br>  <br>  <br>  <br>
-    <a href="admin-add-movie.jsp">Add Movie Page</a>
+    <a href="be-admin-addmovie.jsp">Add Movie Page</a>
      <br>  <br>  <br>  <br>
     <a href="MovieListControllerServlet?command=ADMIN_LIST">Admin List Movies</a>
      <br>  <br>  <br>  <br>

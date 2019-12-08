@@ -130,7 +130,7 @@ public class MovieListControllerServlet extends HttpServlet {
 			Movie theMovie = movieDetailDbUtil.getMovie(movieId);	
 			
 			request.setAttribute("The_Movie", theMovie);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-update-movie.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/be-admin-updatemovie.jsp");
 			dispatcher.forward(request, response);			
 	}
 	
@@ -163,9 +163,15 @@ public class MovieListControllerServlet extends HttpServlet {
         
 //		send it to the db
         movieDetailDbUtil.addMovie(movie);
+        
+        
 		
 		//send the user to the homepage
-		listMovies(request, response);
+        List<Movie> movies;
+		movies = movieDetailDbUtil.getMovies();
+		request.setAttribute("Movie_List", movies);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/be-admin-home.jsp");
+		dispatcher.forward(request, response);	
 					
 	}
 	

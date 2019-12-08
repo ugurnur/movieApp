@@ -2,21 +2,7 @@
 <%@ page import ="java.util.List"%>
 <%@ page import ="com.moviemvc.Movie"%>
 
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link href="css/styles.css" type="text/css" rel="stylesheet" />
-    <title>Add New Movie</title>
-        
-  </head>
-  <body>
-<h2>Add A New Movie</h2>
+<h2>Admin Add A New Movie Page</h2>
     <form action="MovieListControllerServlet" action="GET" name="AddMovieForm" id="movieAdd">
         <input
             type="hidden"
@@ -131,5 +117,3 @@
 
       <button type="submit" class="smb_button">Submit</button>
     </form>
-  </body>
-</html>
