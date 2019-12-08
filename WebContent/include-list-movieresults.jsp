@@ -5,8 +5,11 @@
 
   <%
 ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
+String sq = (String)request.getAttribute("sql");
   %>
 <h2>List All Movie Results</h2>
+
+<p><%=sq%></p>
   <table>
  
    <% for(Movie mv : list) { %>

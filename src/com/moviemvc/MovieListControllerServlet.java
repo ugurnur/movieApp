@@ -99,27 +99,22 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	
 	private void advancedSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int id;
 		String sql = "SELECT * FROM movies2 ";
-		String title= null;
-		int year;
-		String genre= null;
-		float imdb;
-		String cast = null;
-		String awards=null;
+
+
 		boolean  isWhereExist = false;
 
 		isWhereExist = sql.contains("where");
 		
 		// build sql query
-		if (!request.getParameter("id").equals(null)) {
-			id= Integer.parseInt(request.getParameter("id"));
+		if (!request.getParameter("id").equals("")) {
+			int id= Integer.parseInt(request.getParameter("id"));
 			if (isWhereExist) { sql += " and id="+id;}
 			else { sql += " where id="+id; isWhereExist = true; }
 			
 		}
-		if (!request.getParameter("title").equals(null)) {
-			 title = request.getParameter("title");
+		if (!request.getParameter("title").equals("")) {
+			String title = request.getParameter("title");
 			
 			if (isWhereExist) { sql += " and title REGEXP "+"\'"+title+"\'";}
 			else { 
@@ -127,8 +122,8 @@ public class MovieListControllerServlet extends HttpServlet {
 				isWhereExist = true;
 			}
 		}
-		if (!request.getParameter("year").equals(null)) {
-			year= Integer.parseInt(request.getParameter("year"));
+		if (!request.getParameter("year").equals("")) {
+			int year= Integer.parseInt(request.getParameter("year"));
 			
 			if (isWhereExist) { sql += " and year ="+year;}
 			else { 
@@ -137,8 +132,8 @@ public class MovieListControllerServlet extends HttpServlet {
 			}
 		}
 		
-		if (!request.getParameter("genre").equals(null)) {
-			genre= request.getParameter("genre");
+		if (!request.getParameter("genre").equals("No") ) {
+			String genre= request.getParameter("genre");
 			if (isWhereExist) { sql += " and genre="+"\'"+genre+"\'";}
 			else { 
 				sql += " where genre="+"\'"+genre+"\'";
@@ -146,8 +141,8 @@ public class MovieListControllerServlet extends HttpServlet {
 			}
 		}
 		
-		if (!request.getParameter("imdb").equals(null)) {
-			imdb= Float.parseFloat(request.getParameter("imdb"));
+		if (!request.getParameter("imdb").equals("")) {
+			float imdb= Float.parseFloat(request.getParameter("imdb"));
 			if (isWhereExist) { sql += " and imdb="+imdb;}
 			else { 
 				sql += " where imdb="+imdb;
@@ -155,18 +150,17 @@ public class MovieListControllerServlet extends HttpServlet {
 			}
 		}
 		
-		if (!request.getParameter("cast").equals(null)) {
-			cast= request.getParameter("cast");	
+		if (!request.getParameter("cast").equals("")) {
+			String cast= request.getParameter("cast");	
 			if (isWhereExist) { sql += " and cast REGEXP "+"\'"+cast+"\'";}
 			else { 
 				sql += " where cast REGEXP "+"\'"+cast+"\'";
 				isWhereExist = true;
 			}
-			
 		}
 		
-		if (!request.getParameter("awards").equals(null)) {
-			awards= request.getParameter("awards");
+		if (!request.getParameter("awards").equals("")) {
+			String awards= request.getParameter("awards");
 			
 			if (isWhereExist) { sql += " and cast REGEXP "+"\'"+awards+"\'";}
 			else { 
@@ -175,19 +169,13 @@ public class MovieListControllerServlet extends HttpServlet {
 			}
 			
 		}
+	
+		List<Movie> movies;
+			movies = movieDetailDbUtil.getSearchResult(sql);
+			request.setAttribute("Movie_List", movies);
+			request.setAttribute("sql", sql);
 
-        
-        
-		
-		
-		
-//		List<Movie> movies;
-//			movies = movieDetailDbUtil.getSearchResult(sql);
-//			request.setAttribute("Movie_List", movies);
-		request.setAttribute("title", title);
-		request.setAttribute("sql", sql);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/search-result.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fe-search-results.jsp");
 			dispatcher.forward(request, response);			
 	}
 	

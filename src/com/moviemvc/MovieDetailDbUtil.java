@@ -55,7 +55,6 @@ private DataSource dataSource;
 	}
 	
 	
-	
 	public Movie getMovie(int movieid) throws Exception {
 		Movie movie = null;
 		int movieId = movieid;
