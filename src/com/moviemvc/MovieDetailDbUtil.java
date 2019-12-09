@@ -114,6 +114,8 @@ private DataSource dataSource;
 		
 		
 		try {
+			
+			
 			myConn = dataSource.getConnection();
 			String sql = "INSERT INTO movies2 " +
 					"(title, year, genre, imdb, cast, awards, url, imgUrl) "

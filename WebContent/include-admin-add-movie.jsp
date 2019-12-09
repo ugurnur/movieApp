@@ -33,8 +33,7 @@
             placeholder="Enter the year of the Movie"
             min="1900"
             max="2023"
-             required
-
+			required
           />
         </label>
 
@@ -64,7 +63,7 @@
             type="text"
             aria-label="Enter IMDB Rate"
             placeholder="Enter IMDB Rate"
-             required
+            required
           />
         </label>
 

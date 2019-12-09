@@ -220,19 +220,20 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	private void addMovies(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		create a new movie object
-
+		Movie movie;
         String title= request.getParameter("title");
         int year= Integer.parseInt(request.getParameter("year"));
+    
         String genre= request.getParameter("genre");
+
         float imdb= Float.parseFloat(request.getParameter("imdb")) ;
+ 
         String cast= request.getParameter("cast");
         String awards= request.getParameter("awards");
         String trailer= request.getParameter("trailer");
         String imgUrl= request.getParameter("imgUrl");
 
-        
-        Movie movie = new Movie(title, year, genre, imdb, cast, awards, trailer, imgUrl);
-        
+    	movie = new Movie(title, year, genre, imdb, cast, awards, trailer, imgUrl);        
 //		send it to the db
         movieDetailDbUtil.addMovie(movie);
         

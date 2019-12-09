@@ -11,6 +11,7 @@ public class Movie {
 	private String awards;
 	private String trailerUrl;
 	private String imgUrl;
+
 	
 	
 	public Movie(String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl, String imgUrl) {
@@ -20,12 +21,14 @@ public class Movie {
 		this.genre = genre;
 		this.imdb_rate = imdb_rate;
 		this.cast = cast;
-		this.cast = cast;
 		this.awards = awards;
 		this.trailerUrl = trailerUrl;
 		this.imgUrl = imgUrl;
 		
 	}
+	
+
+	
 	
 	public Movie(int id, String title, int year, String genre, float imdb_rate, String cast, String awards, String trailerUrl, String imgUrl) {
 		this.id = id;
@@ -33,7 +36,6 @@ public class Movie {
 		this.year = year;
 		this.genre = genre;
 		this.imdb_rate = imdb_rate;
-		this.cast = cast;
 		this.cast = cast;
 		this.awards = awards;
 		this.trailerUrl = trailerUrl;

@@ -1,6 +1,4 @@
-<h2>Advanced Search</h2>
 
-                  
         <form action="MovieListControllerServlet?" action="GET" name="AddMovieForm" id="movieAdd">
         <input
             type="hidden"
@@ -100,5 +98,6 @@
           />
         </label>
 
-      <button type="submit" class="smb_button">Submit</button>
+      <label>
+          <span> </span><button type="submit" class="smb_button">Submit</button>  </label>
     </form>

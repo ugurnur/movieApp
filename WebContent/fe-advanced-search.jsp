@@ -13,6 +13,7 @@
     <%@ include file="header.jsp" %>
 
       <div class="content_cont">
+      <h2>Advanced Search</h2>
       <%@ include file="include-advanced-search.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
