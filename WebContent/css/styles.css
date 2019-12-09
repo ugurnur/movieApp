@@ -60,16 +60,34 @@ select {
   float: left;
 }
 .top-search {
-  float: right;
+  margin: 105px auto 30px;
+  width: 860px;
+  padding: 20px;
+  border-radius: 10px;
+  /* border: 1px solid rgb(187, 197, 206); */
+  position: relative;
+  box-sizing: content-box;
 }
 
-#header .top-search .searchbar {
-  width: 635px;
+.top-search span.searchTitle {
+  font-size: 30px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  color: rgb(241, 122, 11);
+}
+.top-search form {
+  display: inline-block;
+}
+
+.top-search .searchbar {
+  width: 405px;
   border-radius: 10px;
   font-size: 18px;
   padding: 15px;
   position: absolute;
-  top: 15px;
+  top: 0px;
   left: 120px;
 }
 .sndbutton {
@@ -78,11 +96,14 @@ select {
   width: 80px;
   height: 80px;
   border: none;
-  margin-left: 20px;
+  margin-left: 15px;
+  position: absolute;
+  top: -8px;
+  left: 560px;
 }
 
 .content_cont {
-  margin: 105px auto 30px;
+  margin: 20px auto 30px;
   width: 860px;
   padding: 20px;
   background-color: aliceblue;
