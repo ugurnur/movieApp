@@ -1,6 +1,6 @@
     <header id="header" class="clearfix">
         <div class="head-cont">
-                <a class="logo" href="index.html"><img class="logo" src="img/logo_.png" alt="" width="80" height="80"></a>
+                <a class="logo" href="index.jsp"><img class="logo" src="img/logo_.png" alt="" width="80" height="80"></a>
                 <div class="top-search clearfix">
                     <form action="MovieListControllerServlet" action="GET">
                             <input

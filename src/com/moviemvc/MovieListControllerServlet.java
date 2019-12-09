@@ -78,7 +78,8 @@ public class MovieListControllerServlet extends HttpServlet {
 					
 				case "ADVANCEDSEARCH": 
 					advancedSearch(request, response);
-					break;				
+					break;	
+					
 				default: 
 					listMovies(request, response);
 					break;
@@ -93,9 +94,6 @@ public class MovieListControllerServlet extends HttpServlet {
 		}
 	}
 
-
-	
-	// page handlers
 	
 	
 	private void advancedSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {

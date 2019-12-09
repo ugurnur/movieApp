@@ -147,16 +147,12 @@ private DataSource dataSource;
 		ResultSet resultSet = null;
 		
 		try {
-
 			myConn = dataSource.getConnection();
-
 			String sql = "SELECT * FROM movies2";
 			myStatement = myConn.createStatement();
 			resultSet = myStatement.executeQuery(sql);
 			
-			while(resultSet.next()) {
-
-				
+			while(resultSet.next()) {		
 				int id = resultSet.getInt("id");
 				String title = resultSet.getString("title");
 				int year = resultSet.getInt("year");
@@ -167,8 +163,7 @@ private DataSource dataSource;
 				String url = resultSet.getString("url");
 				String imgUrl = resultSet.getString("imgUrl");
 				
-				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);
-				
+				Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);			
 				movies.add(tempMovie);
 			}			
 			// return list object
@@ -312,4 +307,72 @@ public List<Movie> advancedSearchMovies() throws Exception {
 			close(myConn, myStatement, resultSet);
 		}
 	}
+
+// anasayfa componentlari
+public List<Movie> getHomeMovies() throws Exception {
+	List<Movie> movies = new ArrayList<>();
+	Connection myConn = null;
+	Statement myStatement = null;
+	ResultSet resultSet = null;
+	
+	try {
+		myConn = dataSource.getConnection();
+		String sql = "SELECT * FROM movies2";
+		myStatement = myConn.createStatement();
+		resultSet = myStatement.executeQuery(sql);
+		
+		while(resultSet.next()) {		
+			int id = resultSet.getInt("id");
+			String title = resultSet.getString("title");
+			int year = resultSet.getInt("year");
+			String genre = resultSet.getString("genre");
+			float imdb = resultSet.getFloat("imdb");
+			String cast = resultSet.getString("cast");
+			String awards = resultSet.getString("awards");
+			String url = resultSet.getString("url");
+			String imgUrl = resultSet.getString("imgUrl");	
+			Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);			
+			movies.add(tempMovie);
+		}			
+		// return list object
+		return movies;
+	}
+	finally {
+		close(myConn, myStatement, resultSet);
+	}
+}
+
+public List<Movie> popularMovies() throws Exception {
+	List<Movie> movies = new ArrayList<>();
+	Connection myConn = null;
+	Statement myStatement = null;
+	ResultSet resultSet = null;
+	
+	try {
+		myConn = dataSource.getConnection();
+		String sql = "SELECT * FROM movies2";
+		myStatement = myConn.createStatement();
+		resultSet = myStatement.executeQuery(sql);
+		
+		while(resultSet.next()) {		
+			int id = resultSet.getInt("id");
+			String title = resultSet.getString("title");
+			int year = resultSet.getInt("year");
+			String genre = resultSet.getString("genre");
+			float imdb = resultSet.getFloat("imdb");
+			String cast = resultSet.getString("cast");
+			String awards = resultSet.getString("awards");
+			String url = resultSet.getString("url");
+			String imgUrl = resultSet.getString("imgUrl");	
+			Movie tempMovie = new Movie(id, title, year, genre, imdb, cast, awards, url, imgUrl);			
+			movies.add(tempMovie);
+		}			
+		// return list object
+		return movies;
+	}
+	finally {
+		close(myConn, myStatement, resultSet);
+	}
+}
+
 }

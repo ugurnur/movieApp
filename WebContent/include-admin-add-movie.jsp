@@ -114,5 +114,5 @@
           />
         </label>
 
-      <button type="submit" class="smb_button">Submit</button>
+      <label><span></span><button type="submit" class="smb_button">Add</button></label>
     </form>
