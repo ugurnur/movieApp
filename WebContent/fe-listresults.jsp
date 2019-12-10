@@ -16,6 +16,6 @@
       <%@ include file="include-list-movieresults.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
-    
+
   </body>
 </html>

@@ -15,7 +15,7 @@
   <body>
     
     
-    <a href="MovieListControllerServlet?command="LIST">List All Movies</a>
+    <a href="MovieListControllerServlet?command=LIST">List All Movies</a>
     <br>  <br>  <br>  <br>
 
         <a href="MovieListControllerServlet?movieId=3&command=FETCH">Movie Detail Page</a>

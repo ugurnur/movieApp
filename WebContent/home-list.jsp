@@ -2,26 +2,23 @@
 <%@ page import ="java.util.List"%>
 <%@ page import ="com.moviemvc.Movie"%>
 
-<%
-ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
+
+
+<h2>List All Movies</h2>
+  <table>
+   <%
+ArrayList<Movie> homelist = (ArrayList<Movie>) request.getAttribute("Movie_List");
+  %>
   
-%>
-   
-   
-    <% if (list.isEmpty()){ %>
-        <h2 class="error">We could not find any movie related to your search inquiry! <br> Please search again</h2>
-        
-        
-         <%@ include file="include-advanced-search.jsp" %>
-        
-        <% } else { %>
-        <h2>List All Movie Results</h2>
-        
-           <% for(Movie mv : list) { %>
-   
-     <table>
- <tr><td>Movie id: </td><td><%= mv.getId()%> </td></tr>
- <tr><td>Title: </td><td><%= mv.getTitle()%> </td></tr>
+   <% for(Movie mv : homelist) { %>
+ 
+  <tr><td>Movie Id: </td><td><%= mv.getId()%> </td></tr>
+ 
+ <tr><td>Movie Title: </td>
+ <td><a href="MovieListControllerServlet?movieId=<%= mv.getId()%>&command=FETCH" title="<%= mv.getTitle()%>">    
+ <%= mv.getTitle()%> </a> 
+ 
+ </td></tr>
  <tr><td>Year: </td><td><%= mv.getYear()%> </td></tr>
   <tr><td>IMDB Rate: </td><td><%= mv.getImdb_rate()%> </td></tr>
   <tr><td>Genre: </td><td><%= mv.getGenre()%> </td></tr>
@@ -29,6 +26,7 @@ ArrayList<Movie> list = (ArrayList<Movie>) request.getAttribute("Movie_List");
    <tr><td>Awards: </td><td><%= mv.getAwards()%> </td></tr>
       <tr><td>Trailer: </td><td><a href="<%= mv.getTrailerUrl()%>" target="_blank"><%= mv.getTrailerUrl()%></a> </td></tr>
       <tr><td>Poster Link: </td><td><img src="<%= mv.getImgUrl()%>" width="200"></td></tr>
-       	</table>
-  <% } } %>
-   
+
+  <% } %>
+  
+</table>

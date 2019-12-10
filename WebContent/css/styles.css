@@ -25,12 +25,16 @@ select {
   padding: 3px;
   border-radius: 8px;
   margin-left: 8px;
+  width: 300px
 }
 
 #movieAdd .smb_button {
   font-size: 16px;
   padding: 10px;
   border-radius: 8px;
+  margin-left: 8px;
+  background-color: orange;
+  font-weight: bold;
 }
 
 .clearfix::after {
@@ -46,11 +50,12 @@ select {
   z-index: 9999;
   top: 0;
   left: 0;
+  padding: 5px 0 0;
 }
 
 #header .head-cont {
   width: 900px;
-  margin: 5px auto 0;
+  margin: 0 auto 0;
   position: relative;
 }
 
@@ -59,8 +64,32 @@ select {
   margin-right: 20px;
   float: left;
 }
+
+nav a {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  font-size: 18px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+}
 .top-search {
-  margin: 105px auto 30px;
+  margin: 115px auto 30px;
   width: 860px;
   padding: 20px;
   border-radius: 10px;
@@ -159,3 +188,4 @@ select {
   border-color: #405266;
   border-radius: 3px;
 }
+h2.error {color: red; line-height:1.4}

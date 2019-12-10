@@ -97,7 +97,7 @@ public class MovieListControllerServlet extends HttpServlet {
 	
 	
 	private void advancedSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String sql = "SELECT * FROM movies2 ";
+		String sql = "SELECT * FROM movies2 where 1=1 ";
 
 
 		boolean  isWhereExist = false;
@@ -160,11 +160,8 @@ public class MovieListControllerServlet extends HttpServlet {
 		if (!request.getParameter("awards").equals("")) {
 			String awards= request.getParameter("awards");
 			
-			if (isWhereExist) { sql += " and cast REGEXP "+"\'"+awards+"\'";}
-			else { 
-				sql += " where cast REGEXP "+"\'"+awards+"\'";
-				isWhereExist = true;
-			}
+			sql += " and awards REGEXP \'"+awards+"\'";
+
 			
 		}
 	
@@ -182,7 +179,7 @@ public class MovieListControllerServlet extends HttpServlet {
 		List<Movie> movies;
 			movies = movieDetailDbUtil.getMovies();
 			request.setAttribute("Movie_List", movies);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/fe-listmovies.jsp");
 			dispatcher.forward(request, response);			
 	}
 	

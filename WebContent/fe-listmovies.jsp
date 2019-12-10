@@ -11,8 +11,9 @@
   </head>
   <body>
     <%@ include file="header.jsp" %>
-    <div class="content_cont">
-      <%@ include file="include-list-movies.jsp" %>
+
+      <div class="content_cont">
+      <%@ include file="home-list.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
     

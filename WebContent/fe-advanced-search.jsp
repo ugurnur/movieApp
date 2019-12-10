@@ -17,6 +17,5 @@
       <%@ include file="include-advanced-search.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
-    
   </body>
 </html>

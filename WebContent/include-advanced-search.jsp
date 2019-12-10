@@ -1,13 +1,14 @@
-
-        <form action="MovieListControllerServlet?" action="GET" name="AddMovieForm" id="movieAdd">
-        <input
-            type="hidden"
-            name="command"
-            value="ADVANCEDSEARCH"
-          />
-          <label>
-                    <span>Movie ID:</span>
-                    <input
+<form
+        action="MovieListControllerServlet?"
+        action="GET"
+        name="AddMovieForm"
+        id="movieAdd"
+        onsubmit="return validateForm()"
+      >
+        <input type="hidden" name="command" value="ADVANCEDSEARCH" />
+        <label>
+          <span>Movie ID:</span>
+          <input
             id="MovieId"
             title="Movie Id"
             type="number"
@@ -25,7 +26,6 @@
             name="title"
             aria-label="fullname"
             placeholder="Title of the Movie"
-
           />
         </label>
 
@@ -40,14 +40,13 @@
             placeholder="Enter the year of the Movie"
             min="1900"
             max="2023"
-
           />
         </label>
 
         <label>
           <span>Genre:</span>
-          <select required name="genre">
-          <option selected value="No">Select Genre</option>
+          <select required name="genre" id="genre">
+            <option selected value="No">Select Genre</option>
             <option value="Action">Action</option>
             <option value="Drama">Drama</option>
             <option value="Adventure">Adventure</option>
@@ -98,6 +97,7 @@
           />
         </label>
 
-      <label>
-          <span> </span><button type="submit" class="smb_button">Submit</button>  </label>
-    </form>
+        <label>
+          <span> </span><button type="submit" class="smb_button">Submit</button>
+        </label>
+      </form>
