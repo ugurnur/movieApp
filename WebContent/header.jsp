@@ -1,6 +1,6 @@
     <header id="header" class="clearfix">
         <div class="head-cont">
-                <a class="logo" href="homeinit"><img class="logo" src="img/logo_.png" alt="" width="80" height="80"></a>
+                <a class="logo" href="home"><img class="logo" src="img/logo_.png" alt="" width="80" height="80"></a>
                 
                 <div class="navcont clearfix">
 

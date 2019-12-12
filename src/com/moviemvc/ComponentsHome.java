@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 
-@WebServlet(urlPatterns = {"//ComponentsHome", "/homeinit"})
+@WebServlet(urlPatterns = {"//ComponentsHome", "/home"})
 public class ComponentsHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
