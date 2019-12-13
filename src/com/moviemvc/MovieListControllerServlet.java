@@ -45,7 +45,6 @@ public class MovieListControllerServlet extends HttpServlet {
 		try {
 			
 			String uri = request.getRequestURI();
-			System.out.println(uri);
 			
 			if (request.getParameter("command") != null) {
 				String command = request.getParameter("command");

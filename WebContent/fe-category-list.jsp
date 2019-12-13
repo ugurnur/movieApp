@@ -10,10 +10,10 @@
     <title>Movie Search - Home</title>
   </head>
   <body>
-    <%@ include file="header2.jsp" %>
-    <div class="content_cont">
-    <%@ include file="home-list-deneme1.jsp" %>
-    <%@ include file="home-list-deneme2.jsp" %>
+    <%@ include file="header.jsp" %>
+
+      <div class="content_cont">
+      <%@ include file="include-genrelist.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
     
