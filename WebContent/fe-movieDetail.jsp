@@ -10,7 +10,7 @@
     <title>Movie Search - Home</title>
   </head>
   <body>
-    <%@ include file="header.jsp" %>
+    <%@ include file="header2.jsp" %>
 
       <div class="content_cont">
       <%@ include file="include-movie-detail.jsp" %>

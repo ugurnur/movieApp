@@ -13,7 +13,6 @@
     <%@ include file="header2.jsp" %>
     <div class="content_cont">
     <%@ include file="home-list-deneme1.jsp" %>
-    <%@ include file="home-list-deneme2.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
     

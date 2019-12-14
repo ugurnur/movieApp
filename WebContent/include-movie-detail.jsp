@@ -22,7 +22,14 @@ Movie mr= (Movie)request.getAttribute("Movie_Detail");
 		  <table>
  <tr><td class="column-A">Movie ID: </td><td class="column-B"><%= mr.getId()%> </td></tr>
  <tr><td class="column-A">Year: </td><td><%= mr.getYear()%> </td></tr>
-  <tr><td class="column-A">Genre: </td><td><%= mr.getGenre()%> </td></tr>
+  <tr><td class="column-A">Genre: </td><td> <a class="genre-link" href="Category?genre=<%= mr.getGenre()%>" title="<%= mr.getTitle()%>">
+		<%= mr.getGenre()%>
+		</a> </td></tr>
+  
+  
+  
+  
+  
    <tr><td class="column-A">Cast: </td><td><%= mr.getCast()%> </td></tr>
    <tr><td class="column-A">Awards: </td><td><%= mr.getAwards()%> </td></tr>
 </table>
