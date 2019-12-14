@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
             <link href="css/styles.css" type="text/css" rel="stylesheet" />
-    <title>Movie Search - Home</title>
+    <title>Search Results</title>
   </head>
   <body>
     <%@ include file="header2.jsp" %>
