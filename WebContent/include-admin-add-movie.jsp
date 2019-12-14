@@ -2,7 +2,7 @@
 <%@ page import ="java.util.List"%>
 <%@ page import ="com.moviemvc.Movie"%>
 
-<h2>Admin Add A New Movie Page</h2>
+<h2>Add A New Movie Page</h2>
     <form action="MovieListControllerServlet" action="GET" name="AddMovieForm" id="movieAdd">
         <input
             type="hidden"

@@ -14,4 +14,3 @@
             </div>
         </div>
     </header>
-     <%@ include file="include-top-searchbar.jsp" %>

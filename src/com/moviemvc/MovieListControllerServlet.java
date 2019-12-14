@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 
-@WebServlet("/MovieListControllerServlet")
+//@WebServlet("/MovieListControllerServlet")
 
-//@WebServlet(urlPatterns = {"/MovieListControllerServlet", "/home","/search", "/advancedSearch"})
+@WebServlet(urlPatterns = {"/MovieListControllerServlet", "/admin"})
 public class MovieListControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

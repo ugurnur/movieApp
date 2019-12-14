@@ -11,7 +11,7 @@
   </head>
   <body>
     <%@ include file="header.jsp" %>
-    <div class="content_cont">
+    <div class="admin-content_cont">
       <%@ include file="include-admin-update-movie.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>

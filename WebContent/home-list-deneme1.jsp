@@ -8,10 +8,14 @@
 
    <%
 ArrayList<Movie> homelist = (ArrayList<Movie>) request.getAttribute("HomeMovieList");
+   
+   int size = homelist.size();
+   size -= 1;
   %>
-  
-   <% for(Movie mv : homelist) { %>
- 
-	<%@ include file="include-movie-loop.jsp" %>
+
+    <% for(int i =size; i > 0; i--) {%>
+    
+    		<%Movie mv = homelist.get(i); %>
+			<%@ include file="include-movie-loop.jsp" %>
 
   <% } %>

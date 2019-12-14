@@ -1,3 +1,7 @@
+<%-- <%
+    response.sendRedirect("http://localhost:8080/movie3/home");
+%> --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,15 +10,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <link href="css/styles.css" type="text/css" rel="stylesheet" />
-    <title>Movie Search - Home</title>
+    <title>Movie Search - Admin Home</title>
   </head>
   <body>
-    <%@ include file="header.jsp" %>
-    <div class="admin-content_cont">
-      <%@ include file="include-admin-add-movie.jsp" %>
-  </div>
-    <%@ include file="footer.jsp" %>
+    
+    
+    <%
+        String redirectURL = "http://localhost:8080/movie3/admin?command=ADMIN_LIST";
+        response.sendRedirect(redirectURL);
+    %>
+    
     
   </body>
 </html>
