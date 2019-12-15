@@ -12,7 +12,7 @@
     
     
     <%
-        String redirectURL = "http://localhost:8080/movie3/admin?command=ADMIN_LIST";
+        String redirectURL = "http://localhost:8080/movie3/adminhome?command=ADMIN_LIST";
         response.sendRedirect(redirectURL);
     %>
     
