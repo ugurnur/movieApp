@@ -140,7 +140,9 @@ public class MovieListControllerServlet extends HttpServlet {
 		
 		if (!request.getParameter("imdb").equals("")) {
 			float imdb= Float.parseFloat(request.getParameter("imdb"));
-			if (isWhereExist) { sql += " and imdb="+imdb;}
+			System.out.println("imdb is "+imdb);
+			System.out.println(((Object)imdb).getClass().getName());
+			if (isWhereExist) { sql += " and imdb>="+imdb;}
 			else { 
 				sql += " where imdb="+imdb;
 				isWhereExist = true;

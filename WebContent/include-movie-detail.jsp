@@ -25,6 +25,7 @@ Movie mr= (Movie)request.getAttribute("Movie_Detail");
   <tr><td class="column-A">Genre: </td><td> <a class="genre-link" href="Category?genre=<%= mr.getGenre()%>" title="<%= mr.getTitle()%>">
 		<%= mr.getGenre()%>
 		</a> </td></tr>
+		  <tr><td class="column-A">IMDB:</td><td><%= mr.getImdb_rate() %></td></tr>
   
   
   

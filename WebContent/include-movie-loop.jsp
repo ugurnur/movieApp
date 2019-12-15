@@ -19,6 +19,7 @@
 		</a>
    
     </td></tr>
+    <tr><td class="column-A">IMDB:  </td><td><%= mv.getImdb_rate() %></td></tr>
     
        <tr><td class="column-A">Cast: </td><td><%= mv.getCast()%> </td></tr>
    <tr><td class="column-A">Awards: </td><td><%= mv.getAwards()%> </td></tr>
