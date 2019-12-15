@@ -39,7 +39,7 @@
 
         <label>
           <span>Genre:</span>
-          <select required name="genre">
+          <select required name="genre"   id="genre">
             <option value="Action">Action</option>
             <option value="Drama">Drama</option>
             <option value="Adventure">Adventure</option>
@@ -60,9 +60,12 @@
             id="imdb"
             name="imdb"
             title="IMDB Rate"
-            type="text"
             aria-label="Enter IMDB Rate"
             placeholder="Enter IMDB Rate"
+            
+            	type="number" step="0.1"
+			min=0 max=10
+             required
             required
           />
         </label>

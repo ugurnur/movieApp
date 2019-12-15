@@ -26,9 +26,7 @@ Movie mr= (Movie)request.getAttribute("Movie_Detail");
 		<%= mr.getGenre()%>
 		</a> </td></tr>
 		  <tr><td class="column-A">IMDB:</td><td><%= mr.getImdb_rate() %></td></tr>
-  
-  
-  
+
   
   
    <tr><td class="column-A">Cast: </td><td><%= mr.getCast()%> </td></tr>

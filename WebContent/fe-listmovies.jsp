@@ -10,10 +10,10 @@
     <title>List All Movies - Home</title>
   </head>
   <body>
-    <%@ include file="header.jsp" %>
+    <%@ include file="header2.jsp" %>
 
       <div class="content_cont">
-      <%@ include file="home-list.jsp" %>
+      <%@ include file="include-list-movies.jsp" %>
   </div>
     <%@ include file="footer.jsp" %>
     

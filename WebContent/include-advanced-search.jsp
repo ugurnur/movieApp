@@ -67,9 +67,12 @@
             id="imdb"
             name="imdb"
             title="IMDB Rate"
-            type="text"
             aria-label="Enter IMDB Rate"
             placeholder="Enter IMDB Rate"
+           type="number" 
+           step="0.1"
+			min=0 max=10
+             required
           />
         </label>
 
