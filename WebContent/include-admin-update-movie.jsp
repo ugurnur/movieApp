@@ -86,21 +86,25 @@ Movie mv= (Movie)request.getAttribute("The_Movie");
           </select>
         </label>
 
-
-
-        <label>
+	  <label>
           <span>IMDB Rate:</span>
           <input
             id="imdb"
             name="imdb"
             title="IMDB Rate"
-            type="text"
             aria-label="Enter IMDB Rate"
             placeholder="Enter IMDB Rate"
-            value="<%= mv.getImdb_rate() %>"
+            
+            	type="number" step="0.1"
+			min=0 max=10
+			value="<%= mv.getImdb_rate() %>"
              required
+
+            required
           />
         </label>
+
+        
         <label>
           <span>Cast:</span>
           <input
