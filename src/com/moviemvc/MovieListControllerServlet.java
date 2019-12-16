@@ -85,7 +85,6 @@ public class MovieListControllerServlet extends HttpServlet {
 				}
 			}
 			
-			listMovies(request, response);
 
 			
 		} catch (Exception e) {
